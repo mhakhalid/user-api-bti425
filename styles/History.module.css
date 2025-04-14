@@ -1,0 +1,31 @@
+.historyListItem:hover {
+  background-color: rgb(244, 244, 244);
+  cursor: pointer;
+}
+
+
+.history-container {
+  padding: 20px;
+}
+
+.history-card {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.history-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.history-query {
+  font-size: 14px;
+  color: #555;
+}
+
+.history-item {
+  margin: 10px 0;
+}
