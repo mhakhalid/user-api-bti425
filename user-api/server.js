@@ -97,13 +97,18 @@ app.delete("/api/user/history/:id", passport.authenticate('jwt', { session: fals
 });
 
 // CONNECT TO DB AND START SERVER
-module.exports = (req, res) => {
-  userService.connect()
-    .then(() => {
-      app(req, res); // use the express app as a handler
-    })
-    .catch((err) => {
-      res.status(500).send("DB Connection failed: " + err);
-    });
+let isConnected = false;
+
+module.exports = async (req, res) => {
+  if (!isConnected) {
+    try {
+      await userService.connect();
+      isConnected = true;
+    } catch (err) {
+      return res.status(500).send("DB connection failed: " + err);
+    }
+  }
+
+  app(req, res); 
 };
 
