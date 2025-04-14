@@ -97,13 +97,13 @@ app.delete("/api/user/history/:id", passport.authenticate('jwt', { session: fals
 });
 
 // CONNECT TO DB AND START SERVER
-userService.connect()
-  .then(() => {
-    app.listen(HTTP_PORT, () => {
-      console.log("API listening on: " + HTTP_PORT);
+module.exports = (req, res) => {
+  userService.connect()
+    .then(() => {
+      app(req, res); // use the express app as a handler
+    })
+    .catch((err) => {
+      res.status(500).send("DB Connection failed: " + err);
     });
-  })
-  .catch((err) => {
-    console.log("Unable to start the server: " + err);
-    process.exit();
-  });
+};
+
