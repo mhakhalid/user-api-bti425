@@ -1,0 +1,23 @@
+# === Node.js / Express ===
+node_modules/
+.env
+.env.*            # exclude all variants like .env.local, .env.production
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# === Vercel local files ===
+.vercel/
+
+# === Misc ===
+.DS_Store
+*.pem
+
+# === Optional: Coverage / Build (for testing or production build) ===
+/coverage
+/build
+
+# === Ignore log & temp files ===
+*.log
+*.tmp
